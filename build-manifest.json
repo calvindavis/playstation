@@ -1,0 +1,45 @@
+{
+  "inputs": {
+    "index.css": {
+      "bytes": 382,
+      "imports": []
+    },
+    "_snowpack/pkg/three.js": {
+      "bytes": 1006634,
+      "imports": []
+    },
+    "index.js": {
+      "bytes": 2377,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/three.js",
+          "kind": "import-statement"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "../~~bundle~~/index.css": {
+      "imports": [],
+      "inputs": {
+        "index.css": {
+          "bytesInOutput": 302
+        }
+      },
+      "bytes": 303
+    },
+    "../~~bundle~~/index.js": {
+      "imports": [],
+      "exports": [],
+      "inputs": {
+        "_snowpack/pkg/three.js": {
+          "bytesInOutput": 534870
+        },
+        "index.js": {
+          "bytesInOutput": 1132
+        }
+      },
+      "bytes": 536003
+    }
+  }
+}
