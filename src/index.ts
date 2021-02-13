@@ -1,14 +1,11 @@
 import {
 	AmbientLight,
 	BoxGeometry,
-	DirectionalLight,
 	Group,
-	LatheGeometry,
 	Mesh,
 	MeshPhongMaterial,
-	MeshToonMaterial,
 	PerspectiveCamera,
-	RingGeometry,
+	PointLight,
 	Scene,
 	Vector2,
 	WebGLRenderer,
@@ -60,6 +57,19 @@ const meshes: Mesh[] = [
 	createCube(0, 1, 0xff6666),
 	createCube(1, 0, 0x7cb2e8),
 ];
+const mouse = new Vector2(0, 0);
+
+document.addEventListener("mousemove", function (event) {
+	const width = canvas.clientWidth;
+	const halfWidth = width / 2;
+	const x = (event.clientX - halfWidth) / halfWidth;
+	const height = canvas.clientHeight;
+	const halfHeight = height / 2;
+	const y = (event.clientY - halfHeight) / halfHeight;
+
+	// TODO Calculate real projection of screen to scene.
+	mouse.set(3 * x, -3 * y);
+});
 
 const group = new Group();
 meshes.forEach(function (mesh) {
@@ -69,9 +79,8 @@ group.position.set(0, 0, 0);
 
 scene.add(group);
 
-const light = new DirectionalLight(0xffffff, 1);
-light.position.set(-2, 2, 0);
-light.target.position.set(0, 0, -3);
+const light = new PointLight(0xffffff, 1);
+light.position.set(mouse.x, mouse.y, 0);
 scene.add(light);
 
 const ambient = new AmbientLight(0x111111);
@@ -86,10 +95,12 @@ function render(time: number): void {
 		camera.updateProjectionMatrix();
 	}
 
+	light.position.set(mouse.x, mouse.y, 0);
+
 	group.rotation.y = Math.PI * scroll;
 
 	meshes.forEach(function (mesh) {
-		mesh.rotation.y = 0.0005 * time;
+		mesh.rotation.y = 0.0003 * time;
 	});
 
 	renderer.render(scene, camera);
