@@ -9,6 +9,29 @@ import {
 	WebGLRenderer,
 } from "three";
 
+interface ResizeRendererResult {
+	didResize: boolean;
+	height?: number;
+	width?: number;
+}
+
+function resizeRenderer(renderer: WebGLRenderer): ResizeRendererResult {
+	const canvas = renderer.domElement;
+	const width = canvas.clientWidth;
+	const height = canvas.clientHeight;
+	const shouldResize = width !== canvas.width || height !== canvas.height;
+
+	if (shouldResize) {
+		renderer.setSize(width, height, false);
+	}
+
+	return {
+		width,
+		height,
+		didResize: shouldResize,
+	};
+}
+
 function createCube(x: number, color: number): Mesh {
 	const material = new MeshPhongMaterial({ color });
 	const mesh = new Mesh(geometry, material);
@@ -42,8 +65,14 @@ scene.add(ambient);
 function render(time: number): void {
 	const scroll = window.scrollY / window.innerHeight;
 
-	meshes.forEach(function (mesh) {
-		mesh.rotation.y = 0.0005 * time;
+	const resizeResult = resizeRenderer(renderer);
+	if (resizeResult.didResize) {
+		camera.aspect = resizeResult.width / resizeResult.height;
+		camera.updateProjectionMatrix();
+	}
+
+	meshes.forEach(function (mesh, index) {
+		mesh.rotation.y = (0.0005 + 0.0005 * index) * time;
 		mesh.rotation.x = -Math.PI * scroll;
 	});
 
