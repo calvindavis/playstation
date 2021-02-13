@@ -40,9 +40,11 @@ const ambient = new AmbientLight(0x111111);
 scene.add(ambient);
 
 function render(time: number): void {
+	const scroll = window.scrollY / window.innerHeight;
+
 	meshes.forEach(function (mesh) {
 		mesh.rotation.y = 0.0005 * time;
-		//mesh.rotation.x = -0.0001 * time;
+		mesh.rotation.x = -Math.PI * scroll;
 	});
 
 	renderer.render(scene, camera);
