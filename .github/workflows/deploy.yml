@@ -1,10 +1,20 @@
 name: Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   builds-and-deploys:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm i
-      - run: npm build
+      - name: Build
+        uses: actions/checkout@v2
+        uses: actions/setup-node@v1
+        run: npm i
+        run: npm build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secret.GITHUB_TOKEN }}
+            publish_dir: build
