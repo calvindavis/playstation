@@ -2,10 +2,15 @@ import {
 	AmbientLight,
 	BoxGeometry,
 	DirectionalLight,
+	Group,
+	LatheGeometry,
 	Mesh,
 	MeshPhongMaterial,
+	MeshToonMaterial,
 	PerspectiveCamera,
+	RingGeometry,
 	Scene,
+	Vector2,
 	WebGLRenderer,
 } from "three";
 
@@ -32,12 +37,15 @@ function resizeRenderer(renderer: WebGLRenderer): ResizeRendererResult {
 	};
 }
 
-function createCube(x: number, color: number): Mesh {
+function createCube(x: number, z: number, color: number): Mesh {
+	const geometry = new BoxGeometry();
 	const material = new MeshPhongMaterial({ color });
 	const mesh = new Mesh(geometry, material);
+	const m = 2;
+	const y = -0.5 + Math.random() * 1;
 
-	mesh.position.set(x, 0, -5);
-	scene.add(mesh);
+	mesh.position.set(m * x, y, m * z);
+	mesh.rotation.z = -0.5 + Math.random() * 1;
 
 	return mesh;
 }
@@ -45,14 +53,21 @@ function createCube(x: number, color: number): Mesh {
 const canvas = document.querySelector<HTMLCanvasElement>(".js-canvas");
 const renderer = new WebGLRenderer({ canvas });
 const scene = new Scene();
-const camera = new PerspectiveCamera(75, 2, 1, 10);
-const geometry = new BoxGeometry();
+const camera = new PerspectiveCamera(75, 2, 0.1, 15);
 const meshes: Mesh[] = [
-	createCube(-3, 0xff0000),
-	createCube(-1, 0xffff00),
-	createCube(1, 0xffffff),
-	createCube(3, 0x00ff00),
+	createCube(0, -1, 0x40e2a0),
+	createCube(-1, 0, 0xff69f8),
+	createCube(0, 1, 0xff6666),
+	createCube(1, 0, 0x7cb2e8),
 ];
+
+const group = new Group();
+meshes.forEach(function (mesh) {
+	group.add(mesh);
+});
+group.position.set(0, 0, 0);
+
+scene.add(group);
 
 const light = new DirectionalLight(0xffffff, 1);
 light.position.set(-2, 2, 0);
@@ -71,9 +86,10 @@ function render(time: number): void {
 		camera.updateProjectionMatrix();
 	}
 
-	meshes.forEach(function (mesh, index) {
-		mesh.rotation.y = (0.0005 + 0.0005 * index) * time;
-		mesh.rotation.x = -Math.PI * scroll;
+	group.rotation.y = Math.PI * scroll;
+
+	meshes.forEach(function (mesh) {
+		mesh.rotation.y = 0.0005 * time;
 	});
 
 	renderer.render(scene, camera);
