@@ -8,11 +8,72 @@
       "bytes": 1006634,
       "imports": []
     },
-    "index.js": {
-      "bytes": 2377,
+    "Icon.js": {
+      "bytes": 633,
       "imports": [
         {
           "path": "_snowpack/pkg/three.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "CircleIcon.js": {
+      "bytes": 131,
+      "imports": [
+        {
+          "path": "Icon.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "CrossIcon.js": {
+      "bytes": 131,
+      "imports": [
+        {
+          "path": "Icon.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "SquareIcon.js": {
+      "bytes": 132,
+      "imports": [
+        {
+          "path": "Icon.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "TriangleIcon.js": {
+      "bytes": 133,
+      "imports": [
+        {
+          "path": "Icon.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "index.js": {
+      "bytes": 2250,
+      "imports": [
+        {
+          "path": "_snowpack/pkg/three.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "CircleIcon.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "CrossIcon.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "SquareIcon.js",
+          "kind": "import-statement"
+        },
+        {
+          "path": "TriangleIcon.js",
           "kind": "import-statement"
         }
       ]
@@ -35,11 +96,26 @@
         "_snowpack/pkg/three.js": {
           "bytesInOutput": 534870
         },
+        "Icon.js": {
+          "bytesInOutput": 337
+        },
+        "CircleIcon.js": {
+          "bytesInOutput": 68
+        },
+        "CrossIcon.js": {
+          "bytesInOutput": 69
+        },
+        "SquareIcon.js": {
+          "bytesInOutput": 69
+        },
+        "TriangleIcon.js": {
+          "bytesInOutput": 68
+        },
         "index.js": {
-          "bytesInOutput": 1132
+          "bytesInOutput": 1003
         }
       },
-      "bytes": 536003
+      "bytes": 536485
     }
   }
 }
