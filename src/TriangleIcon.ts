@@ -1,7 +1,8 @@
+import { BufferGeometry, SphereGeometry } from "three";
 import Icon from "./Icon";
 
 export default class TriangleIcon extends Icon {
-	constructor(x: number, z: number) {
-		super(x, z, 0x40e2a0);
+	protected getColor(): number {
+		return 0x40e2a0;
 	}
 }
