@@ -9,7 +9,7 @@
       "imports": []
     },
     "Icon.js": {
-      "bytes": 633,
+      "bytes": 750,
       "imports": [
         {
           "path": "_snowpack/pkg/three.js",
@@ -18,7 +18,7 @@
       ]
     },
     "CircleIcon.js": {
-      "bytes": 131,
+      "bytes": 118,
       "imports": [
         {
           "path": "Icon.js",
@@ -27,7 +27,7 @@
       ]
     },
     "CrossIcon.js": {
-      "bytes": 131,
+      "bytes": 118,
       "imports": [
         {
           "path": "Icon.js",
@@ -36,7 +36,7 @@
       ]
     },
     "SquareIcon.js": {
-      "bytes": 132,
+      "bytes": 119,
       "imports": [
         {
           "path": "Icon.js",
@@ -45,7 +45,7 @@
       ]
     },
     "TriangleIcon.js": {
-      "bytes": 133,
+      "bytes": 120,
       "imports": [
         {
           "path": "Icon.js",
@@ -97,25 +97,25 @@
           "bytesInOutput": 534870
         },
         "Icon.js": {
-          "bytesInOutput": 337
+          "bytesInOutput": 411
         },
         "CircleIcon.js": {
-          "bytesInOutput": 68
+          "bytesInOutput": 58
         },
         "CrossIcon.js": {
-          "bytesInOutput": 69
+          "bytesInOutput": 59
         },
         "SquareIcon.js": {
-          "bytesInOutput": 69
+          "bytesInOutput": 59
         },
         "TriangleIcon.js": {
-          "bytesInOutput": 68
+          "bytesInOutput": 58
         },
         "index.js": {
           "bytesInOutput": 1003
         }
       },
-      "bytes": 536485
+      "bytes": 536519
     }
   }
 }
