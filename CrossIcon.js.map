@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["/home/runner/work/playstation/playstation/src/CrossIcon.ts"],
+  "sourcesContent": ["import Icon from \"./Icon\";\n\nexport default class CrossIcon extends Icon {\n\tprotected getColor(): number {\n\t\treturn 0xff6666;\n\t}\n}\n"],
+  "mappings": "AAAA;AAAA,uCAEuC;AAAA,EAC5B;AACT,WAAO;AAAA;AAAA;",
+  "names": []
+}

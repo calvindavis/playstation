@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["/home/runner/work/playstation/playstation/src/TriangleIcon.ts"],
+  "sourcesContent": ["import { BufferGeometry, SphereGeometry } from \"three\";\nimport Icon from \"./Icon\";\n\nexport default class TriangleIcon extends Icon {\n\tprotected getColor(): number {\n\t\treturn 0x40e2a0;\n\t}\n}\n"],
+  "mappings": "AACA;AADA,0CAG0C;AAAA,EAC/B;AACT,WAAO;AAAA;AAAA;",
+  "names": []
+}

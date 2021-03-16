@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["/home/runner/work/playstation/playstation/src/SquareIcon.ts"],
+  "sourcesContent": ["import Icon from \"./Icon\";\n\nexport default class SquareIcon extends Icon {\n\tprotected getColor(): number {\n\t\treturn 0xff69f8;\n\t}\n}\n"],
+  "mappings": "AAAA;AAAA,wCAEwC;AAAA,EAC7B;AACT,WAAO;AAAA;AAAA;",
+  "names": []
+}
