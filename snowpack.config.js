@@ -1,9 +1,11 @@
 module.exports = {
+	buildOptions: {
+		sourcemap: true,
+	},
 	mount: {
 		src: "/",
 	},
 	optimize: {
-		bundle: true,
 		minify: true,
 	},
 };
